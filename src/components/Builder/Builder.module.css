@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 3rem;
+  align-items: center;
+}
+
+.container .heading {
+  font-size: 2.1rem;
+}
+
+.container .toolbar {
+  width: 100%;
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .toolbar .colors {
+  display: flex;
+  gap: 1rem;
+  padding: 0 3rem;
+}
+
+.colors .color {
+  width: 2rem;
+  height: 1.4rem;
+  border-radius: 20%;
+  background-color: #20a4f3;
+}
+
+.toolbar button {
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.4rem;
+  background-color: #32936f;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-size: 1.1rem;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toolbar button:hover {
+  opacity: 0.8;
+}
