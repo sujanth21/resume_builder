@@ -1,0 +1,50 @@
+main {
+  min-height: 80vh;
+  padding: 0 9%;
+  padding-top: 7.5rem;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home img {
+  width: 40vw;
+}
+
+.content h3 {
+  font-size: 5.5rem;
+  text-transform: uppercase;
+  color: #444;
+}
+
+.content span {
+  color: #32936f;
+}
+
+.content p {
+  font-size: 1.7rem;
+  color: #777;
+  padding: 1rem 0;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  border: 1px solid #32936f;
+  text-decoration: none;
+  background: #f0faf6;
+  color: #32936f;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.btn:hover {
+  background-color: #32936f;
+  color: #fff;
+  border: none;
+}

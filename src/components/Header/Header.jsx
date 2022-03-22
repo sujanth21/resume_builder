@@ -1,26 +1,42 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import HeaderImg from "../../assets/header-img.svg";
+import { SiCountingworkspro } from "react-icons/si";
+import { FaBars, FaUser, FaTimes } from "react-icons/fa";
 
 import styles from "./Header.module.css";
 
 const Header = () => {
+  const navBarRef = useRef(null);
+
+  const onMenuBarHandler = () => {
+    navBarRef.current.classList.add("active");
+    console.log(navBarRef.current.classList);
+  };
+
   return (
-    <div className={styles.container}>
-      <img src={HeaderImg} alt='header image' />
-      <div className={styles.content}>
-        <p className={styles.heading}>
-          Build your future with{" "}
-          <span>
-            <Link to='/builder'>ReBuild</Link>
-          </span>
-        </p>
-        <p className={styles.heading}>
-          Create your <span>FREE</span> resume today and start your amazing
-          career
-        </p>
+    <header className={styles.header}>
+      <a href='/' className={styles.logo}>
+        <SiCountingworkspro color='#32936f' /> ReBuild
+      </a>
+
+      <nav className={styles.navbar} ref={navBarRef}>
+        <div id={styles.close_navbar}>
+          <FaTimes />
+        </div>
+        <a href='/'>Home</a>
+        <a href='/'>About</a>
+        <a href='/'>Terms</a>
+      </nav>
+
+      <div className={styles.icons}>
+        <div id={styles.account_btn}>
+          <FaUser />
+        </div>
+        <div id={styles.menu_btn} onClick={onMenuBarHandler}>
+          <FaBars />
+        </div>
       </div>
-    </div>
+    </header>
   );
 };
 
