@@ -1,0 +1,38 @@
+.why {
+  padding: 0 9%;
+  padding-top: 7.5rem;
+  padding-bottom: 6rem;
+}
+
+.why .heading {
+  margin-bottom: 4rem;
+  font-size: 3.6rem;
+}
+
+.why h3 {
+  text-align: center;
+  margin-bottom: 0.8rem;
+  font-size: 2.4rem;
+  text-transform: capitalize;
+  color: #444;
+  padding-bottom: 0.5rem 0;
+}
+
+.why .box_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+}
+
+.why .box {
+  padding: 3rem 2rem;
+  text-align: center;
+  border: 1px solid #32936f;
+  border-radius: 3px;
+  background: #f0faf6;
+  cursor: pointer;
+}
+
+.why .box img {
+  height: 10rem;
+}

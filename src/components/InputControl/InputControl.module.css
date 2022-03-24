@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+input {
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+input:hover {
+  border: 1px solid #adadad;
+}
+
+input:focus {
+  border: 1px solid #32936f;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.detail .row {
+  display: flex;
+  gap: 2rem;
+}
+
+.detail .column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detail .row > div {
+  flex: 1;
+}

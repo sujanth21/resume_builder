@@ -2,12 +2,14 @@ main {
   min-height: 80vh;
   padding: 0 9%;
   padding-top: 7.5rem;
+  padding-bottom: 6rem;
 }
 
 .home {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  gap: 3rem;
 }
 
 .home img {
@@ -46,5 +48,19 @@ main {
 .btn:hover {
   background-color: #32936f;
   color: #fff;
-  border: none;
+}
+
+@media (max-width: 768px) {
+  .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .home img {
+    padding-top: 4.8rem;
+    width: 100%;
+  }
 }
