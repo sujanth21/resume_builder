@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaDownload } from "react-icons/fa";
 import ResumeEditor from "../ResumeEditor/ResumeEditor";
 
@@ -16,6 +16,48 @@ const Builder = () => {
     summary: "Summary",
     other: "Other",
   };
+
+  const [resumeData, setResumeData] = useState({
+    [resumeSections.basicInfo]: {
+      id: resumeSections.basicInfo,
+      sectionTitle: resumeSections.basicInfo,
+      details: {},
+    },
+    [resumeSections.workExp]: {
+      id: resumeSections.workExp,
+      sectionTitle: resumeSections.workExp,
+      details: [],
+    },
+    [resumeSections.project]: {
+      id: resumeSections.project,
+      sectionTitle: resumeSections.project,
+      details: [],
+    },
+    [resumeSections.education]: {
+      id: resumeSections.education,
+      sectionTitle: resumeSections.education,
+      details: [],
+    },
+    [resumeSections.achievements]: {
+      id: resumeSections.achievements,
+      sectionTitle: resumeSections.achievements,
+      points: [],
+    },
+    [resumeSections.summary]: {
+      id: resumeSections.summary,
+      sectionTitle: resumeSections.summary,
+      details: "",
+    },
+    [resumeSections.other]: {
+      id: resumeSections.other,
+      sectionTitle: resumeSections.other,
+      details: "",
+    },
+  });
+
+  useEffect(() => {
+    console.log(resumeData);
+  }, [resumeData]);
 
   return (
     <div className={styles.container}>
@@ -38,7 +80,11 @@ const Builder = () => {
         </button>
       </div>
       <div className={styles.main}>
-        <ResumeEditor sections={resumeSections} />
+        <ResumeEditor
+          sections={resumeSections}
+          resumeData={resumeData}
+          setData={setResumeData}
+        />
       </div>
     </div>
   );
