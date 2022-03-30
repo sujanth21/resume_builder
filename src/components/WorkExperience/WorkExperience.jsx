@@ -34,13 +34,13 @@ const WorkExperience = ({ values, setValues }) => {
         </div>
         <div className={styles.row}>
           <InputControl
-            label='Certificate Link'
-            placeholder='Enter certificate link'
-            value={values?.certificationLink}
+            label='Company Website'
+            placeholder='Enter company wesite url'
+            value={values?.companyLink}
             onChange={(e) =>
               setValues((prev) => ({
                 ...prev,
-                certificationLink: e.target.value,
+                companyLink: e.target.value,
               }))
             }
           />

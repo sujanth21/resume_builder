@@ -80,7 +80,7 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
       case sections.workExp: {
         const temp = {
           title: values.title,
-          certificationLink: values.certificationLink,
+          companyLink: values.companyLink,
           companyName: values.companyName,
           startDate: values.startDate,
           endDate: values.endDate,
@@ -216,8 +216,8 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
         ? activeData.details[0]?.startDate || ""
         : "",
       endDate: activeData.details ? activeData.details[0]?.endDate || "" : "",
-      certificationLink: activeData.details
-        ? activeData.details[0]?.certificationLink || ""
+      companyLink: activeData.details
+        ? activeData.details[0]?.companyLink || ""
         : "",
       points: activeData.details
         ? activeData.details[0]?.points
@@ -231,8 +231,74 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
     });
   }, [activeSectionKey]);
 
+  useEffect(() => {
+    setActiveData(resumeData[sections[activeSectionKey]]);
+  }, [resumeData]);
+
+  useEffect(() => {
+    const details = activeData?.details;
+    if (!details) return;
+
+    const activeInfo = resumeData[sections[activeSectionKey]];
+
+    setValues({
+      overview: activeInfo.details[activeDetailIndex]?.overview || "",
+      link: activeInfo.details[activeDetailIndex]?.link || "",
+      companyLink: activeInfo.details[activeDetailIndex]?.companyLink || "",
+      companyName: activeInfo.details[activeDetailIndex]?.companyName || "",
+      location: activeInfo.details[activeDetailIndex]?.location || "",
+      startDate: activeInfo.details[activeDetailIndex]?.startDate || "",
+      endDate: activeInfo.details[activeDetailIndex]?.endDate || "",
+      points: activeInfo.details[activeDetailIndex]?.points || "",
+      title: activeInfo.details[activeDetailIndex]?.title || "",
+      linkedin: activeInfo.details[activeDetailIndex]?.linkedin || "",
+      github: activeInfo.details[activeDetailIndex]?.github || "",
+      institution: activeInfo.details[activeDetailIndex]?.institution || "",
+    });
+  }, [activeDetailIndex]);
+
   const onHandleSectionTitle = (e) => {
     setSectionTitle(e.target.value);
+  };
+
+  const handleAddNewSection = () => {
+    const details = activeData?.details;
+    if (!details) return;
+
+    const lastDetail = details.slice(-1)[0];
+    if (!Object.keys(lastDetail).length) return;
+    details?.push({});
+
+    setData((prev) => {
+      return {
+        ...prev,
+        [sections[activeSectionKey]]: {
+          ...resumeData[sections[activeSectionKey]],
+          details: details,
+        },
+      };
+    });
+    setActiveDetailIndex(details?.length - 1);
+  };
+
+  const handleDeleteSection = (index) => {
+    const details = activeData?.details ? [...activeData?.details] : "";
+
+    if (!details) return;
+    details.splice(index, 1);
+
+    setData((prev) => {
+      return {
+        ...prev,
+        [sections[activeSectionKey]]: {
+          ...resumeData[sections[activeSectionKey]],
+          details: details,
+        },
+      };
+    });
+    setActiveDetailIndex((prev) => {
+      return prev === index ? 0 : prev - 1;
+    });
   };
 
   return (
@@ -274,11 +340,24 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
                     <p>
                       {sections[activeSectionKey]} {index + 1}
                     </p>
-                    <FaTimes />
+                    <FaTimes
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDeleteSection(index);
+                      }}
+                    />
                   </div>
                 );
               })
             : ""}
+
+          {activeData?.details && activeData?.details?.length > 0 ? (
+            <div className={styles.new} onClick={handleAddNewSection}>
+              + Add New
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         {generateFields()}
         <button className={styles.btn} onClick={handleFormSubmission}>
