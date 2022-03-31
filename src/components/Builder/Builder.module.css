@@ -31,14 +31,15 @@
   background-color: #20a4f3;
 }
 
-.toolbar button {
+.toolbar .btn {
   padding: 0.8rem 1.6rem;
   border-radius: 0.4rem;
   background-color: #32936f;
   color: #fff;
   outline: none;
   border: none;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  text-decoration: none;
 
   cursor: pointer;
 
@@ -47,6 +48,11 @@
   gap: 0.5rem;
 }
 
-.toolbar button:hover {
+.toolbar .btn:hover {
   opacity: 0.8;
+}
+
+.btnContainer {
+  display: flex;
+  gap: 2rem;
 }

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { FaDownload } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaDownload, FaFilePdf } from "react-icons/fa";
 import ResumeEditor from "../ResumeEditor/ResumeEditor";
 
 import styles from "./Builder.module.css";
+import Header from "../Header/Header";
 
 const Builder = () => {
   const colors = ["#20A4F3", "#32936F", "#9C528B", "#FC814A", "#01172F"];
@@ -60,33 +62,45 @@ const Builder = () => {
   }, [resumeData]);
 
   return (
-    <div className={styles.container}>
-      <p className={styles.heading}>ReBuild Your Future</p>
+    <>
+      <Header />
+      <div className={styles.container}>
+        <p className={styles.heading}>ReBuild Your Future</p>
 
-      <div className={styles.toolbar}>
-        <div className={styles.colors}>
-          {colors.map((color) => {
-            return (
-              <span
-                key={color}
-                className={styles.color}
-                style={{ backgroundColor: color }}
-              />
-            );
-          })}
+        <div className={styles.toolbar}>
+          <div className={styles.colors}>
+            {colors.map((color) => {
+              return (
+                <span
+                  key={color}
+                  className={styles.color}
+                  style={{ backgroundColor: color }}
+                />
+              );
+            })}
+          </div>
+          <div className={styles.btnContainer}>
+            <Link
+              to='/resume'
+              className={styles.btn}
+              state={{ resumeData: resumeData, sections: resumeSections }}
+            >
+              Preview Resume <FaFilePdf />
+            </Link>
+            <button className={styles.btn}>
+              Download Resume <FaDownload />
+            </button>
+          </div>
         </div>
-        <button>
-          Download Resume <FaDownload />
-        </button>
+        <div className={styles.main}>
+          <ResumeEditor
+            sections={resumeSections}
+            resumeData={resumeData}
+            setData={setResumeData}
+          />
+        </div>
       </div>
-      <div className={styles.main}>
-        <ResumeEditor
-          sections={resumeSections}
-          resumeData={resumeData}
-          setData={setResumeData}
-        />
-      </div>
-    </div>
+    </>
   );
 };
 
