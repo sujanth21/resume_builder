@@ -1,6 +1,6 @@
 import React from "react";
 
-import InputControl from "../InputControl/InputControl";
+import { InputControl } from "../InputControl/InputControl";
 import styles from "../InputControl/InputControl.module.css";
 
 const BasicInfo = ({ values, setValues }) => {

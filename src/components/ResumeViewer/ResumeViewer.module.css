@@ -7,6 +7,7 @@
   height: fit-content;
   min-height: 80%;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.24);
+  --color: #32936f;
 }
 
 .header {
@@ -16,7 +17,7 @@
 .header .heading {
   font-size: 3.6rem;
   font-weight: 500;
-  color: #32936f;
+  color: var(--color);
 }
 
 .header .subHeading {
@@ -45,12 +46,12 @@
 }
 
 .links svg {
-  color: #32936f;
+  color: var(--color);
 }
 
 .main {
   display: flex;
-  gap: 2rem;
+  gap: 5rem;
 }
 
 .col1,
@@ -62,14 +63,81 @@
 }
 
 .section .sectionTitle {
+  line-height: 0;
   font-size: 1.8rem;
   text-transform: uppercase;
-  color: #32936f;
+  color: var(--color);
   font-weight: bold;
+  padding-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.item {
+  padding: 1rem 0;
 }
 
 .content .title {
   font-size: 1.6rem;
   font-weight: bolder;
   color: #000;
+  padding: 1rem 0;
+  margin-bottom: 0;
+  line-height: 0;
+}
+
+.content .subTitle {
+  padding-top: 0.5rem;
+  margin: 0;
+  line-height: 1.8rem;
+  color: #000;
+}
+
+.content .spaceBetween {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #555;
+  font-style: italic;
+}
+
+.content .description {
+  line-height: 1.6rem;
+  font-size: 1.2rem;
+  padding: 0;
+}
+
+.content .subTitleItalic {
+  padding-top: 1.8rem;
+  font-style: italic;
+  line-height: 0;
+}
+
+.content .points {
+  padding: 0.5rem 1rem;
+}
+
+.content .point {
+  list-style: none;
+  font-size: 1.4rem;
+}
+
+.content .subjects {
+  width: fit-content;
+  padding: 1rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  color: #000;
+  font-size: 1.4rem;
+  list-style: none;
+}
+
+.content .subject::before {
+  content: "~";
+  padding-right: 1rem;
+}
+
+.hidden {
+  display: none;
 }

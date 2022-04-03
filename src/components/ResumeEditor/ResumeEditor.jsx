@@ -6,7 +6,7 @@ import Education from "../Education/Education";
 import Achievements from "../Achievements/Achievements";
 import SummaryDetails from "../SummaryDetails/SummaryDetails";
 import OtherDetails from "../OtherDetails/OtherDetails";
-import InputControl from "../InputControl/InputControl";
+import { InputControl } from "../InputControl/InputControl";
 
 import { FaTimes } from "react-icons/fa";
 
@@ -85,6 +85,7 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
           startDate: values.startDate,
           endDate: values.endDate,
           location: values.location,
+          description: values.description,
           points: values.points,
         };
 
@@ -131,6 +132,7 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
           institution: values.institution,
           startDate: values.startDate,
           endDate: values.endDate,
+          points: values.points,
         };
 
         const tempDetails = [...resumeData[sections.education]?.details];
@@ -219,6 +221,9 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
       companyLink: activeData.details
         ? activeData.details[0]?.companyLink || ""
         : "",
+      description: activeData.details
+        ? activeData.details[0]?.description || ""
+        : "",
       points: activeData.details
         ? activeData.details[0]?.points
           ? [...activeData.details[0]?.points]
@@ -249,6 +254,7 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
       location: activeInfo.details[activeDetailIndex]?.location || "",
       startDate: activeInfo.details[activeDetailIndex]?.startDate || "",
       endDate: activeInfo.details[activeDetailIndex]?.endDate || "",
+      description: activeInfo.details[activeDetailIndex]?.description || "",
       points: activeInfo.details[activeDetailIndex]?.points || "",
       title: activeInfo.details[activeDetailIndex]?.title || "",
       linkedin: activeInfo.details[activeDetailIndex]?.linkedin || "",

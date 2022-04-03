@@ -25,10 +25,11 @@
 }
 
 .colors .color {
-  width: 2rem;
-  height: 1.4rem;
+  width: 2.5rem;
+  height: 2rem;
   border-radius: 20%;
   background-color: #20a4f3;
+  cursor: pointer;
 }
 
 .toolbar .btn {
@@ -55,4 +56,8 @@
 .btnContainer {
   display: flex;
   gap: 2rem;
+}
+
+.active {
+  border: 2px solid #444;
 }

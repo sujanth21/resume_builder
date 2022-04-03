@@ -1,6 +1,6 @@
 import React from "react";
 
-import InputControl from "../InputControl/InputControl";
+import { InputControl, TextAreaControl } from "../InputControl/InputControl";
 import styles from "../InputControl/InputControl.module.css";
 
 const WorkExperience = ({ values, setValues }) => {
@@ -46,7 +46,7 @@ const WorkExperience = ({ values, setValues }) => {
           />
           <InputControl
             label='Location'
-            placeholder='Enter location eg. Remote'
+            placeholder='Enter location eg. Melbourne'
             value={values?.location}
             onChange={(e) =>
               setValues((prev) => ({
@@ -82,9 +82,22 @@ const WorkExperience = ({ values, setValues }) => {
             }
           />
         </div>
+        <div className={styles.column}>
+          <label>Enter short description</label>
+          <TextAreaControl
+            placeholder='Enter short description'
+            value={values?.description}
+            onChange={(e) =>
+              setValues((prev) => ({
+                ...prev,
+                description: e.target.value,
+              }))
+            }
+          ></TextAreaControl>
+        </div>
 
         <div className={styles.column}>
-          <label>Enter work description</label>
+          <label>Enter achievements / tasks</label>
           <InputControl
             placeholder='Line 1'
             value={values?.points ? values.points[0] : ""}
@@ -99,6 +112,16 @@ const WorkExperience = ({ values, setValues }) => {
             placeholder='Line 3'
             value={values?.points ? values.points[2] : ""}
             onChange={(e) => handlePointUpdate(e.target.value, 2)}
+          />
+          <InputControl
+            placeholder='Line 4'
+            value={values?.points ? values.points[3] : ""}
+            onChange={(e) => handlePointUpdate(e.target.value, 3)}
+          />
+          <InputControl
+            placeholder='Line 5'
+            value={values?.points ? values.points[4] : ""}
+            onChange={(e) => handlePointUpdate(e.target.value, 4)}
           />
         </div>
       </div>

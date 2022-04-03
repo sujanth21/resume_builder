@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./InputControl.module.css";
 
-const InputControl = ({ label, ...props }) => {
+export const InputControl = ({ label, ...props }) => {
   return (
     <div className={styles.container}>
       {label && <label htmlFor=''>{label}</label>}
@@ -11,4 +11,11 @@ const InputControl = ({ label, ...props }) => {
   );
 };
 
-export default InputControl;
+export const TextAreaControl = ({ label, ...props }) => {
+  return (
+    <div className={styles.container}>
+      {label && <label htmlFor=''>{label}</label>}
+      <textarea {...props} rows='5'></textarea>
+    </div>
+  );
+};

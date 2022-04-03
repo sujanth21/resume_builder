@@ -1,15 +1,22 @@
 import React from "react";
-import InputControl from "../InputControl/InputControl";
+import { InputControl } from "../InputControl/InputControl";
 import styles from "../InputControl/InputControl.module.css";
 
 const Education = ({ values, setValues }) => {
+  const handlePointUpdate = (value, index) => {
+    const temp = { ...values };
+    if (!Array.isArray(temp.points)) temp.points = [];
+    temp.points[index] = value;
+    setValues(temp);
+  };
+
   return (
     <>
       <div className={styles.detail}>
         <div className={styles.row}>
           <InputControl
             label='Title'
-            placeholder='Enter title eg. B-tech'
+            placeholder='Enter title eg. BSc in IT'
             value={values?.title}
             onChange={(e) =>
               setValues((prev) => ({ ...prev, title: e.target.value }))
@@ -42,6 +49,35 @@ const Education = ({ values, setValues }) => {
             onChange={(e) =>
               setValues((prev) => ({ ...prev, endDate: e.target.value }))
             }
+          />
+        </div>
+
+        <div className={styles.column}>
+          <label>Enter relevant subjects</label>
+          <InputControl
+            placeholder='Subject 1'
+            value={values?.points ? values.points[0] : ""}
+            onChange={(e) => handlePointUpdate(e.target.value, 0)}
+          />
+          <InputControl
+            placeholder='Subject 2'
+            value={values?.points ? values.points[1] : ""}
+            onChange={(e) => handlePointUpdate(e.target.value, 1)}
+          />
+          <InputControl
+            placeholder='Subject 3'
+            value={values?.points ? values.points[2] : ""}
+            onChange={(e) => handlePointUpdate(e.target.value, 2)}
+          />
+          <InputControl
+            placeholder='Subject 4'
+            value={values?.points ? values.points[3] : ""}
+            onChange={(e) => handlePointUpdate(e.target.value, 3)}
+          />
+          <InputControl
+            placeholder='Subject 5'
+            value={values?.points ? values.points[4] : ""}
+            onChange={(e) => handlePointUpdate(e.target.value, 4)}
           />
         </div>
       </div>

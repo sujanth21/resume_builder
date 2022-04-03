@@ -57,6 +57,8 @@ const Builder = () => {
     },
   });
 
+  const [activeColor, setActiveColor] = useState(colors[0]);
+
   useEffect(() => {
     console.log(resumeData);
   }, [resumeData]);
@@ -73,8 +75,11 @@ const Builder = () => {
               return (
                 <span
                   key={color}
-                  className={styles.color}
+                  className={`${styles.color} ${
+                    activeColor === color ? styles.active : ""
+                  }`}
                   style={{ backgroundColor: color }}
+                  onClick={() => setActiveColor(color)}
                 />
               );
             })}
@@ -83,7 +88,11 @@ const Builder = () => {
             <Link
               to='/resume'
               className={styles.btn}
-              state={{ resumeData: resumeData, sections: resumeSections }}
+              state={{
+                resumeData: resumeData,
+                sections: resumeSections,
+                activeColor: activeColor,
+              }}
             >
               Preview Resume <FaFilePdf />
             </Link>

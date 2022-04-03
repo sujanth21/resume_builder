@@ -9,7 +9,8 @@ label {
   font-size: 1.4rem;
 }
 
-input {
+input,
+textarea {
   border: 1px solid #ccc;
   outline: none;
   padding: 10px 12px;
@@ -17,12 +18,18 @@ input {
   border-radius: 0.5rem;
 }
 
-input:hover {
+input:hover,
+textarea:hover {
   border: 1px solid #adadad;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   border: 1px solid #32936f;
+}
+
+textarea {
+  font-family: "Poppins", sans-serif;
 }
 
 .detail {
