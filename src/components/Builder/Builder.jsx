@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaDownload, FaFilePdf } from "react-icons/fa";
+import { FaFilePdf } from "react-icons/fa";
+
 import ResumeEditor from "../ResumeEditor/ResumeEditor";
 
 import styles from "./Builder.module.css";
@@ -96,9 +97,6 @@ const Builder = () => {
             >
               Preview Resume <FaFilePdf />
             </Link>
-            <button className={styles.btn}>
-              Download Resume <FaDownload />
-            </button>
           </div>
         </div>
         <div className={styles.main}>

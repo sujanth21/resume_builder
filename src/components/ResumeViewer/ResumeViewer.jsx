@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { FaDownload } from "react-icons/fa";
+import ReactToPrint from "react-to-print";
 import Header from "../Header/Header";
 import styles from "./ResumeViewer.module.css";
 
@@ -11,7 +13,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 
-const ResumeViewer = () => {
+const ResumeViewer = forwardRef((props, ref) => {
   const [columns, setColumns] = useState([[], []]);
   const [drag, setDrag] = useState("");
   const [drop, setDrop] = useState("");
@@ -47,7 +49,7 @@ const ResumeViewer = () => {
     [sections.workExp]: (
       <div
         key={"workExp"}
-        draggable='true'
+        draggable={true}
         onDragOver={() => setDrop(data.workExperience?.id)}
         onDragEnd={() => setDrag(data.workExperience?.id)}
         className={`${styles.section} ${styles.workExperience} ${
@@ -106,7 +108,7 @@ const ResumeViewer = () => {
     [sections.project]: (
       <div
         key={"proj"}
-        draggable='true'
+        draggable={true}
         onDragOver={() => setDrop(data.projects?.id)}
         onDragEnd={() => setDrag(data.projects?.id)}
         className={`${styles.section} ${styles.projects} ${
@@ -119,7 +121,7 @@ const ResumeViewer = () => {
     [sections.education]: (
       <div
         key={"edu"}
-        draggable
+        draggable={true}
         onDragOver={() => setDrop(data.education?.id)}
         onDragEnd={() => setDrag(data.education?.id)}
         className={`${styles.section} ${styles.education} ${
@@ -155,7 +157,7 @@ const ResumeViewer = () => {
     [sections.achievements]: (
       <div
         key={"achive"}
-        draggable
+        draggable={true}
         onDragOver={() => setDrop(data.achievements?.id)}
         onDragEnd={() => setDrag(data.achievements?.id)}
         className={`${styles.section} ${styles.achievements} ${
@@ -183,7 +185,7 @@ const ResumeViewer = () => {
     [sections.summary]: (
       <div
         key={"summ"}
-        draggable
+        draggable={true}
         onDragOver={() => setDrop(data.summary?.id)}
         onDragEnd={() => setDrag(data.summary?.id)}
         className={`${styles.section} ${styles.summary} ${
@@ -196,7 +198,7 @@ const ResumeViewer = () => {
     [sections.other]: (
       <div
         key={"other"}
-        draggable
+        draggable={true}
         onDragOver={() => setDrop(data.other?.id)}
         onDragEnd={() => setDrag(data.other?.id)}
         className={`${styles.section} ${styles.other} ${
@@ -258,9 +260,21 @@ const ResumeViewer = () => {
   }, [activeColor]);
 
   return (
-    <>
+    <div ref={ref} className={styles.rootContainer}>
       <Header />
       {/* Header */}
+      <ReactToPrint
+        trigger={() => {
+          return (
+            <button id={styles.downloadBtn} className={styles.btn}>
+              Download Resume <FaDownload />
+            </button>
+          );
+        }}
+        content={() => {
+          return containerRef.current;
+        }}
+      />
       <div ref={containerRef} className={styles.container}>
         <div className={styles.header}>
           <h3 className={styles.heading}>Sujanth Sebamalaithasan</h3>
@@ -309,8 +323,8 @@ const ResumeViewer = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
-};
+});
 
 export default ResumeViewer;

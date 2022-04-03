@@ -1,6 +1,10 @@
+.rootContainer {
+  position: relative;
+}
+
 .container {
   min-width: 80%;
-  margin: 3rem 4rem;
+  margin: 7rem 4rem;
 
   padding: 3rem;
   flex: 1;
@@ -82,7 +86,7 @@
   color: #000;
   padding: 1rem 0;
   margin-bottom: 0;
-  line-height: 0;
+  line-height: 1.6rem;
 }
 
 .content .subTitle {
@@ -140,4 +144,31 @@
 
 .hidden {
   display: none;
+}
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.4rem;
+  background-color: #32936f;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+#downloadBtn {
+  position: absolute;
+  top: 10rem;
+  right: 4rem;
 }
