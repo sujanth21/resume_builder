@@ -23,9 +23,9 @@ const Header = () => {
         <div id={styles.close_navbar}>
           <FaTimes />
         </div>
-        <a href='/'>Home</a>
-        <a href='/'>About</a>
-        <a href='/'>Terms</a>
+        <Link to='/'>Home</Link>
+        <Link to='/builder'>Builder</Link>
+        <Link to='/term'>Terms</Link>
       </nav>
 
       <div className={styles.icons}>

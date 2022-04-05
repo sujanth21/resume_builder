@@ -6,6 +6,8 @@ import ResumeEditor from "../ResumeEditor/ResumeEditor";
 
 import styles from "./Builder.module.css";
 import Header from "../Header/Header";
+import UseLocalStorage from "../../hooks/useLocalStorage";
+import Footer from "../Footer/Footer";
 
 const Builder = () => {
   const colors = ["#20A4F3", "#32936F", "#9C528B", "#FC814A", "#01172F"];
@@ -20,7 +22,7 @@ const Builder = () => {
     other: "Organizations",
   };
 
-  const [resumeData, setResumeData] = useState({
+  const [resumeData, setResumeData] = UseLocalStorage("resumeData", {
     [resumeSections.basicInfo]: {
       id: resumeSections.basicInfo,
       sectionTitle: resumeSections.basicInfo,
@@ -62,13 +64,14 @@ const Builder = () => {
 
   useEffect(() => {
     console.log(resumeData);
+    // Need to use local storage to store resume data
   }, [resumeData]);
 
   return (
     <>
       <Header />
       <div className={styles.container}>
-        <p className={styles.heading}>ReBuild Your Future</p>
+        <h2 className={styles.heading}>ReBuild Your Future</h2>
 
         <div className={styles.toolbar}>
           <div className={styles.colors}>
@@ -107,6 +110,7 @@ const Builder = () => {
           />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

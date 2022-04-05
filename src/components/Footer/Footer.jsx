@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { SiCountingworkspro } from "react-icons/si";
 import {
   FaFacebookSquare,
@@ -39,34 +40,34 @@ const Footer = () => {
         </div>
         <div className={styles.box}>
           <h3>Quick Links</h3>
-          <a href='/' className={styles.link}>
+          <Link to='/' className={styles.link}>
             Home
-          </a>
-          <a href='/' className={styles.link}>
+          </Link>
+          <Link to='/about' className={styles.link}>
             About
-          </a>
-          <a href='/' className={styles.link}>
+          </Link>
+          <Link to='/term' className={styles.link}>
             Terms
-          </a>
+          </Link>
         </div>
 
         <div className={styles.box}>
           <h3>Useful Links</h3>
-          <a href='#' className={styles.link}>
+          <Link to='/support' className={styles.link}>
             Support Center
-          </a>
-          <a href='#' className={styles.link}>
+          </Link>
+          <Link to='/faq' className={styles.link}>
             FAQ
-          </a>
-          <a href='#' className={styles.link}>
+          </Link>
+          <Link to='/feedback' className={styles.link}>
             Feedback
-          </a>
-          <a href='#' className={styles.link}>
+          </Link>
+          <Link to='/privacy' className={styles.link}>
             Privacy Policy
-          </a>
-          <a href='#' className={styles.link}>
+          </Link>
+          <Link to='/term' className={styles.link}>
             Terms and Conditions
-          </a>
+          </Link>
         </div>
 
         <div className={styles.box}>

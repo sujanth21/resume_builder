@@ -12,6 +12,7 @@ import {
   FaLinkedinIn,
   FaGithub,
 } from "react-icons/fa";
+import UseLocalStorage from "../../hooks/useLocalStorage";
 
 const ResumeViewer = forwardRef((props, ref) => {
   const [columns, setColumns] = useState([[], []]);
@@ -19,7 +20,9 @@ const ResumeViewer = forwardRef((props, ref) => {
   const [target, seTarget] = useState("");
 
   const location = useLocation();
-  const { resumeData, sections, activeColor } = location.state;
+  const { sections, activeColor } = location.state;
+
+  const [resumeData, setResumeData] = UseLocalStorage("resumeData");
 
   const containerRef = useRef();
 

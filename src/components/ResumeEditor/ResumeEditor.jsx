@@ -316,6 +316,8 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
   const handleDeleteSection = (index) => {
     const details = activeData?.details ? [...activeData?.details] : "";
 
+    console.log(`Index: ${index}, details: ${details}`);
+
     if (!details) return;
     details.splice(index, 1);
 
@@ -336,7 +338,7 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        {Object.keys(sections).map((section) => {
+        {Object.keys(sections)?.map((section) => {
           return (
             <div
               className={`${styles.section} ${
@@ -357,7 +359,6 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
           value={sectionTitle}
           onChange={onHandleSectionTitle}
         />
-
         <div className={styles.tabs}>
           {activeData && activeData.details?.length > 0
             ? activeData.details.map((item, index) => {
@@ -392,6 +393,7 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
           )}
         </div>
         {generateFields()}
+
         <button className={styles.btn} onClick={handleFormSubmission}>
           Save
         </button>
