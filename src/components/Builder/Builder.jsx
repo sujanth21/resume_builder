@@ -12,11 +12,11 @@ const Builder = () => {
 
   const resumeSections = {
     basicInfo: "Basic Info",
+    summary: "Summary",
     workExp: "Work Experience",
-    project: "Projects",
     education: "Education",
     achievements: "Achievements",
-    summary: "Summary",
+    project: "Projects",
     other: "Other",
   };
 
@@ -26,14 +26,14 @@ const Builder = () => {
       sectionTitle: resumeSections.basicInfo,
       details: {},
     },
+    [resumeSections.summary]: {
+      id: resumeSections.summary,
+      sectionTitle: resumeSections.summary,
+      details: "",
+    },
     [resumeSections.workExp]: {
       id: resumeSections.workExp,
       sectionTitle: resumeSections.workExp,
-      details: [],
-    },
-    [resumeSections.project]: {
-      id: resumeSections.project,
-      sectionTitle: resumeSections.project,
       details: [],
     },
     [resumeSections.education]: {
@@ -44,12 +44,12 @@ const Builder = () => {
     [resumeSections.achievements]: {
       id: resumeSections.achievements,
       sectionTitle: resumeSections.achievements,
-      points: [],
+      details: [],
     },
-    [resumeSections.summary]: {
-      id: resumeSections.summary,
-      sectionTitle: resumeSections.summary,
-      details: "",
+    [resumeSections.project]: {
+      id: resumeSections.project,
+      sectionTitle: resumeSections.project,
+      details: [],
     },
     [resumeSections.other]: {
       id: resumeSections.other,

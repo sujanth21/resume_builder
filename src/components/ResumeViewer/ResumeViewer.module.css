@@ -142,6 +142,10 @@
   padding-right: 1rem;
 }
 
+.content .subject {
+  padding-right: 2rem;
+}
+
 .hidden {
   display: none;
 }

@@ -38,14 +38,14 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
         return <BasicInfo values={values} setValues={setValues} />;
       case sections.workExp:
         return <WorkExperience values={values} setValues={setValues} />;
-      case sections.project:
-        return <Projects values={values} setValues={setValues} />;
+      case sections.summary:
+        return <SummaryDetails values={values} setValues={setValues} />;
       case sections.education:
         return <Education values={values} setValues={setValues} />;
       case sections.achievements:
         return <Achievements values={values} setValues={setValues} />;
-      case sections.summary:
-        return <SummaryDetails values={values} setValues={setValues} />;
+      case sections.project:
+        return <Projects values={values} setValues={setValues} />;
       case sections.other:
         return <OtherDetails values={values} setValues={setValues} />;
       default:
@@ -130,6 +130,7 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
         const temp = {
           title: values.title,
           institution: values.institution,
+          country: values.country,
           startDate: values.startDate,
           endDate: values.endDate,
           points: values.points,
@@ -150,13 +151,19 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
         break;
       }
       case sections.achievements: {
-        const tempPoints = values.points;
+        const temp = {
+          achievement: values.achievement,
+          description: values.description,
+        };
+
+        const tempDetails = [...resumeData[sections.achievements]?.details];
+        tempDetails[activeDetailIndex] = temp;
 
         setData((prev) => ({
           ...prev,
           [sections.achievements]: {
             ...prev[sections.achievements],
-            points: tempPoints,
+            details: tempDetails,
             sectionTitle,
           },
         }));
@@ -224,6 +231,9 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
       description: activeData.details
         ? activeData.details[0]?.description || ""
         : "",
+      achievement: activeData.details
+        ? activeData.details[0]?.achievement || ""
+        : "",
       points: activeData.details
         ? activeData.details[0]?.points
           ? [...activeData.details[0]?.points]
@@ -231,7 +241,8 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
         : activeData?.points
         ? [...activeData.points]
         : "",
-      summary: typeof activeData?.detail !== "object" ? activeData.detail : "",
+      summary: activeData.details?.summary || "",
+      // summary: typeof activeData?.detail !== "object" ? activeData.detail : "",
       other: typeof activeData?.detail !== "object" ? activeData.detail : "",
     });
   }, [activeSectionKey]);
@@ -255,11 +266,13 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
       startDate: activeInfo.details[activeDetailIndex]?.startDate || "",
       endDate: activeInfo.details[activeDetailIndex]?.endDate || "",
       description: activeInfo.details[activeDetailIndex]?.description || "",
+      achievement: activeInfo.details[activeDetailIndex]?.achievement || "",
       points: activeInfo.details[activeDetailIndex]?.points || "",
       title: activeInfo.details[activeDetailIndex]?.title || "",
       linkedin: activeInfo.details[activeDetailIndex]?.linkedin || "",
       github: activeInfo.details[activeDetailIndex]?.github || "",
       institution: activeInfo.details[activeDetailIndex]?.institution || "",
+      country: activeInfo.details[activeDetailIndex]?.country || "",
     });
   }, [activeDetailIndex]);
 

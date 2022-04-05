@@ -1,13 +1,13 @@
 import React from "react";
-import { InputControl } from "../InputControl/InputControl";
+import { TextAreaControl } from "../InputControl/InputControl";
 import styles from "../InputControl/InputControl.module.css";
 
 const SummaryDetails = ({ values, setValues }) => {
   return (
     <>
       <div className={styles.detail}>
-        <InputControl
-          label='Summary'
+        <label>Enter your objective/summary</label>
+        <TextAreaControl
           placeholder='Enter your objective/summary'
           value={values?.summary}
           onChange={(e) =>
@@ -16,7 +16,7 @@ const SummaryDetails = ({ values, setValues }) => {
               summary: e.target.value,
             }))
           }
-        />
+        ></TextAreaControl>
       </div>
     </>
   );

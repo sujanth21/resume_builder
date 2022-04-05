@@ -23,14 +23,27 @@ const Education = ({ values, setValues }) => {
             }
           />
         </div>
-        <InputControl
-          label='Institution Name'
-          placeholder='Enter name of your institution'
-          value={values?.institution}
-          onChange={(e) =>
-            setValues((prev) => ({ ...prev, institution: e.target.value }))
-          }
-        />
+        <div className={styles.row}>
+          <InputControl
+            label='Institution Name'
+            placeholder='Enter name of your institution'
+            value={values?.institution}
+            onChange={(e) =>
+              setValues((prev) => ({ ...prev, institution: e.target.value }))
+            }
+          />
+          <InputControl
+            label='Location'
+            placeholder='Enter location eg. Australia'
+            value={values?.country}
+            onChange={(e) =>
+              setValues((prev) => ({
+                ...prev,
+                country: e.target.value,
+              }))
+            }
+          />
+        </div>
         <div className={styles.row}>
           <InputControl
             label='Start Date'
