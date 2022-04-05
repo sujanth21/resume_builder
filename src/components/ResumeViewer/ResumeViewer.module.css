@@ -66,6 +66,10 @@
   gap: 3rem;
 }
 
+.section {
+  cursor: move;
+}
+
 .section .sectionTitle {
   line-height: 0;
   font-size: 1.8rem;
@@ -175,4 +179,9 @@
   position: absolute;
   top: 10rem;
   right: 4rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color);
 }

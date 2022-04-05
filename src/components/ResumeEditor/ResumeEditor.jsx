@@ -107,9 +107,8 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
         const temp = {
           title: values.title,
           link: values.link,
-          overview: values.overview,
           github: values.github,
-          points: values.points,
+          description: values.description,
         };
 
         const tempDetails = [...resumeData[sections.project]?.details];
@@ -185,13 +184,19 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
         break;
       }
       case sections.other: {
-        const tempDetails = values.other;
+        const temp = {
+          organization: values.organization,
+          involvement: values.involvement,
+        };
+
+        const tempDetails = [...resumeData[sections.other]?.details];
+        tempDetails[activeDetailIndex] = temp;
 
         setData((prev) => ({
           ...prev,
           [sections.other]: {
             ...prev[sections.other],
-            detail: tempDetails,
+            details: tempDetails,
             sectionTitle,
           },
         }));
@@ -234,6 +239,12 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
       achievement: activeData.details
         ? activeData.details[0]?.achievement || ""
         : "",
+      organization: activeData.details
+        ? activeData.details[0]?.organization || ""
+        : "",
+      involvement: activeData.details
+        ? activeData.details[0]?.involvement || ""
+        : "",
       points: activeData.details
         ? activeData.details[0]?.points
           ? [...activeData.details[0]?.points]
@@ -267,6 +278,8 @@ const ResumeEditor = ({ sections, resumeData, setData }) => {
       endDate: activeInfo.details[activeDetailIndex]?.endDate || "",
       description: activeInfo.details[activeDetailIndex]?.description || "",
       achievement: activeInfo.details[activeDetailIndex]?.achievement || "",
+      organization: activeInfo.details[activeDetailIndex]?.organization || "",
+      involvement: activeInfo.details[activeDetailIndex]?.involvement || "",
       points: activeInfo.details[activeDetailIndex]?.points || "",
       title: activeInfo.details[activeDetailIndex]?.title || "",
       linkedin: activeInfo.details[activeDetailIndex]?.linkedin || "",

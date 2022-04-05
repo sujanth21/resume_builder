@@ -1,5 +1,5 @@
 import React from "react";
-import { InputControl } from "../InputControl/InputControl";
+import { InputControl, TextAreaControl } from "../InputControl/InputControl";
 import styles from "../InputControl/InputControl.module.css";
 
 const OtherDetails = ({ values, setValues }) => {
@@ -7,13 +7,25 @@ const OtherDetails = ({ values, setValues }) => {
     <>
       <div className={styles.detail}>
         <InputControl
-          label='Other'
-          placeholder='Enter something'
-          value={values?.other}
+          label='Organization'
+          placeholder='Enter Organization Name'
+          value={values?.organization}
           onChange={(e) =>
-            setValues((prev) => ({ ...prev, other: e.target.value }))
+            setValues((prev) => ({ ...prev, organization: e.target.value }))
           }
         />
+
+        <label>Enter details</label>
+        <TextAreaControl
+          placeholder='Enter your involvements'
+          value={values?.involvement}
+          onChange={(e) =>
+            setValues((prev) => ({
+              ...prev,
+              involvement: e.target.value,
+            }))
+          }
+        ></TextAreaControl>
       </div>
     </>
   );

@@ -17,7 +17,7 @@ const Builder = () => {
     education: "Education",
     achievements: "Achievements",
     project: "Projects",
-    other: "Other",
+    other: "Organizations",
   };
 
   const [resumeData, setResumeData] = useState({
@@ -54,7 +54,7 @@ const Builder = () => {
     [resumeSections.other]: {
       id: resumeSections.other,
       sectionTitle: resumeSections.other,
-      details: "",
+      details: [],
     },
   });
 
