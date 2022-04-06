@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 
 import styles from "./Footer.module.css";
+import ContactForm from "../ContactForm/ContactForm";
 
 const Footer = () => {
   return (
@@ -73,16 +74,7 @@ const Footer = () => {
         <div className={styles.box}>
           <h3>Newsletter</h3>
           <p>Subscribe to receive updates from us</p>
-          <form>
-            <input
-              type='email'
-              name='email'
-              id='email'
-              placeholder='Enter your email'
-              className={styles.email}
-            />
-            <input type='submit' value='Subscribe' className={styles.btn} />
-          </form>
+          <ContactForm />
         </div>
       </div>
 

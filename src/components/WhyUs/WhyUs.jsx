@@ -41,7 +41,7 @@ const WhyUs = () => {
 
         <div className={styles.box}>
           <img src={CustomizeImg} alt='free' />
-          <h3>Friendly Customization</h3>
+          <h3>Easy to Customize</h3>
           <p>Easy to customize and organize by using drag and drop</p>
         </div>
 

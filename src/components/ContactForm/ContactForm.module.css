@@ -1,0 +1,29 @@
+.email {
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  font-size: 1.6rem;
+  border: 1px solid #32936f;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  border: 1px solid #32936f;
+  background: #f0faf6;
+  color: #32936f;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.btn:hover {
+  background-color: #32936f;
+  color: #fff;
+  border: none;
+}
+
+.success {
+  color: #32936f;
+}
