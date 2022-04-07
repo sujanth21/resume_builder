@@ -32,3 +32,20 @@ ul li::before {
   content: "~";
   padding-right: 1rem;
 }
+
+.card {
+  background: #32936f;
+  color: #fff;
+  padding: 3rem 5rem;
+  cursor: pointer;
+  margin: 2rem 0;
+}
+
+.card h3 {
+  color: #fff;
+}
+
+.card p {
+  padding-top: 1rem;
+  color: #fff;
+}
