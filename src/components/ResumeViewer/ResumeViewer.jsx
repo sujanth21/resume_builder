@@ -13,6 +13,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import UseLocalStorage from "../../hooks/useLocalStorage";
+import AnimatedPage from "../AnimatedPage/AnimatedPage";
 
 const ResumeViewer = forwardRef((props, ref) => {
   const [columns, setColumns] = useState([[], []]);
@@ -338,75 +339,77 @@ const ResumeViewer = forwardRef((props, ref) => {
   }, [source]);
 
   return (
-    <div ref={ref} className={styles.rootContainer}>
-      <Header />
-      {/* Header */}
-      <ReactToPrint
-        trigger={() => {
-          return (
-            <button id={styles.downloadBtn} className={styles.btn}>
-              Download Resume <FaDownload />
-            </button>
-          );
-        }}
-        content={() => {
-          return containerRef.current;
-        }}
-      />
-      <div ref={containerRef} className={styles.container}>
-        <div className={styles.header}>
-          <h3 className={styles.heading}>{fullName}</h3>
-          <p className={styles.subHeading}>
-            {data.basicInfo && data.basicInfo?.details?.title}
-          </p>
-          <p>{data.summary && data.summary?.detail}</p>
-        </div>
-        {/* Links */}
-        {(email || mobile || address || gitHub || linkedIn) && (
-          <div className={styles.links}>
-            {email && (
-              <span className={styles.link}>
-                {" "}
-                <FaEnvelope /> {email}
-              </span>
-            )}
-            {mobile && (
-              <span className={styles.link}>
-                <FaMobileAlt /> {mobile}
-              </span>
-            )}
-            {address && (
-              <span className={styles.link}>
-                <FaMapMarkerAlt /> {address}
-              </span>
-            )}
-            {linkedIn && (
-              <span className={styles.link}>
-                <FaLinkedinIn /> {linkedIn}
-              </span>
-            )}
-            {gitHub && (
-              <span className={styles.link}>
-                <FaGithub /> {gitHub}
-              </span>
-            )}
+    <AnimatedPage>
+      <div ref={ref} className={styles.rootContainer}>
+        <Header />
+        {/* Header */}
+        <ReactToPrint
+          trigger={() => {
+            return (
+              <button id={styles.downloadBtn} className={styles.btn}>
+                Download Resume <FaDownload />
+              </button>
+            );
+          }}
+          content={() => {
+            return containerRef.current;
+          }}
+        />
+        <div ref={containerRef} className={styles.container}>
+          <div className={styles.header}>
+            <h3 className={styles.heading}>{fullName}</h3>
+            <p className={styles.subHeading}>
+              {data.basicInfo && data.basicInfo?.details?.title}
+            </p>
+            <p>{data.summary && data.summary?.detail}</p>
           </div>
-        )}
+          {/* Links */}
+          {(email || mobile || address || gitHub || linkedIn) && (
+            <div className={styles.links}>
+              {email && (
+                <span className={styles.link}>
+                  {" "}
+                  <FaEnvelope /> {email}
+                </span>
+              )}
+              {mobile && (
+                <span className={styles.link}>
+                  <FaMobileAlt /> {mobile}
+                </span>
+              )}
+              {address && (
+                <span className={styles.link}>
+                  <FaMapMarkerAlt /> {address}
+                </span>
+              )}
+              {linkedIn && (
+                <span className={styles.link}>
+                  <FaLinkedinIn /> {linkedIn}
+                </span>
+              )}
+              {gitHub && (
+                <span className={styles.link}>
+                  <FaGithub /> {gitHub}
+                </span>
+              )}
+            </div>
+          )}
 
-        <div className={styles.main}>
-          <div className={styles.col1}>
-            {columns[0].map((item, index) => (
-              <div key={index}>{sectionColumn[item]}</div>
-            ))}
-          </div>
-          <div className={styles.col2}>
-            {columns[1].map((item, index) => (
-              <div key={index}>{sectionColumn[item]}</div>
-            ))}
+          <div className={styles.main}>
+            <div className={styles.col1}>
+              {columns[0].map((item, index) => (
+                <div key={index}>{sectionColumn[item]}</div>
+              ))}
+            </div>
+            <div className={styles.col2}>
+              {columns[1].map((item, index) => (
+                <div key={index}>{sectionColumn[item]}</div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </AnimatedPage>
   );
 });
 

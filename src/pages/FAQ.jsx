@@ -4,6 +4,7 @@ import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 
 import styles from "./Style.module.css";
+import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 
 const FAQ = () => {
   const [faqs, setFaqs] = useState([
@@ -56,7 +57,7 @@ const FAQ = () => {
   };
 
   return (
-    <div>
+    <AnimatedPage>
       <Header />
       <div className={styles.container}>
         <h2>Frequently Asked Questions</h2>
@@ -82,38 +83,10 @@ const FAQ = () => {
               </motion.div>
             );
           })}
-          {/** 
-          <motion.div
-            layout
-            transition={{ layout: { duration: 1 } }}
-            className={styles.card}
-            onClick={() => setToggle(!toggle)}
-          >
-            <motion.h3 className={styles.question} layout='position'>
-              Is this a completely free resume builder?
-            </motion.h3>
-
-            {toggle && (
-              <motion.div className={styles.answer}>
-                <p>
-                  Yes, ReBuild is a 100% free resume builder. If you’re on a
-                  budget, you can use it to create your resume completely free
-                  of charge. And no, unlike some other resume builders out
-                  there, we don’t hit you with a paywall once you’ve completed
-                  your resume.
-                </p>
-                <p>
-                  If you use any of our premium features, that also completely
-                  free. You're in control!
-                </p>
-              </motion.div>
-            )}
-          </motion.div>
-          */}
         </div>
       </div>
       <Footer />
-    </div>
+    </AnimatedPage>
   );
 };
 

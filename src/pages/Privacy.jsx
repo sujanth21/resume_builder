@@ -1,4 +1,5 @@
 import React from "react";
+import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 
@@ -6,7 +7,7 @@ import styles from "./Style.module.css";
 
 const Privacy = () => {
   return (
-    <div>
+    <AnimatedPage>
       <Header />
       <div className={styles.container}>
         <h2>Privacy Policy for ReBuild</h2>
@@ -231,7 +232,7 @@ const Privacy = () => {
         </p>
       </div>
       <Footer />
-    </div>
+    </AnimatedPage>
   );
 };
 

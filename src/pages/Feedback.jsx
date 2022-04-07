@@ -5,10 +5,11 @@ import Header from "../components/Header/Header";
 import styles from "./Style.module.css";
 
 import FeedbackImg from "../assets/feedback2.svg";
+import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 
 const Feedback = () => {
   return (
-    <div>
+    <AnimatedPage>
       <Header />
       <div className={styles.container}>
         <h2>Feedback</h2>
@@ -36,7 +37,7 @@ const Feedback = () => {
         </div>
       </div>
       <Footer />
-    </div>
+    </AnimatedPage>
   );
 };
 

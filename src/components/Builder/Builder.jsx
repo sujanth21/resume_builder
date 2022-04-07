@@ -8,6 +8,7 @@ import styles from "./Builder.module.css";
 import Header from "../Header/Header";
 import UseLocalStorage from "../../hooks/useLocalStorage";
 import Footer from "../Footer/Footer";
+import AnimatedPage from "../AnimatedPage/AnimatedPage";
 
 const Builder = () => {
   const colors = ["#20A4F3", "#32936F", "#9C528B", "#FC814A", "#01172F"];
@@ -68,7 +69,7 @@ const Builder = () => {
   }, [resumeData]);
 
   return (
-    <>
+    <AnimatedPage>
       <Header />
       <div className={styles.container}>
         <h2 className={styles.heading}>ReBuild Your Future</h2>
@@ -111,7 +112,7 @@ const Builder = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </AnimatedPage>
   );
 };
 

@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Builder from "./components/Builder/Builder";
 import ResumeViewer from "./components/ResumeViewer/ResumeViewer";
 

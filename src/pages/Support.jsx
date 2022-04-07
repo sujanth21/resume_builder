@@ -4,10 +4,11 @@ import Header from "../components/Header/Header";
 
 import styles from "./Style.module.css";
 import SupportImg from "../assets/help.svg";
+import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 
 const Support = () => {
   return (
-    <div>
+    <AnimatedPage>
       <Header />
       <div className={styles.container}>
         <h2>Help & Support</h2>
@@ -39,7 +40,7 @@ const Support = () => {
       </div>
 
       <Footer />
-    </div>
+    </AnimatedPage>
   );
 };
 

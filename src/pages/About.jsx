@@ -1,4 +1,5 @@
 import React from "react";
+import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 
@@ -6,7 +7,7 @@ import styles from "./Style.module.css";
 
 const About = () => {
   return (
-    <div>
+    <AnimatedPage>
       <Header />
       <div className={styles.container}>
         <h2>About Us !</h2>
@@ -33,7 +34,7 @@ const About = () => {
         </p>
       </div>
       <Footer />
-    </div>
+    </AnimatedPage>
   );
 };
 

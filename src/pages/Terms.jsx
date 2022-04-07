@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AnimatedPage from "../components/AnimatedPage/AnimatedPage";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 
@@ -7,7 +8,7 @@ import styles from "./Style.module.css";
 
 const Terms = () => {
   return (
-    <div>
+    <AnimatedPage>
       <Header />
       <div className={styles.container}>
         <h2>
@@ -336,7 +337,7 @@ const Terms = () => {
       </div>
 
       <Footer />
-    </div>
+    </AnimatedPage>
   );
 };
 
