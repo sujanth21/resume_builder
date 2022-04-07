@@ -20,9 +20,9 @@ const Footer = () => {
             <SiCountingworkspro color='#32936f' /> ReBuild
           </h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
-            expedita placeat sunt doloremque accusantium quos repudiandae, omnis
-            veritatis dicta reprehenderit!
+            ReBuild is an online resume generator, that helps aspiring employees
+            to get in to the competetive job market. ReBuild is an ongoing
+            project that will bring new features to it users every day.
           </p>
           <div className={styles.share}>
             <a href='#'>
